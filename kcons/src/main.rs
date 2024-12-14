@@ -42,7 +42,7 @@ fn consume_messages(group: String, topic: String, brokers: Vec<String>) -> Resul
                     m.value
                 );
             }
-            let _ = con.consume_messageset(&ms);
+            let _ = con.consume_messageset(ms);
         }
         con.commit_consumed()?;
     }
