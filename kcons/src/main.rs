@@ -6,7 +6,7 @@ use kafka::error::Error as KafkaError;
 /// that messages must be marked and committed as consumed to ensure
 /// only once delivery.
 fn main() {
-    tracing_subscriber::fmt::init();
+    // tracing_subscriber::fmt::init();
 
     let broker = "localhost:9092".to_owned();
     let topic = "my-topic".to_owned();
