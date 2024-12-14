@@ -31,19 +31,19 @@ fn consume_messages(group: String, topic: String, brokers: Vec<String>) -> Resul
             println!("No messages available right now.");
             return Ok(());
         }
-        print!("{:?}",mss);
-        // for ms in mss.into_iter() {
-        //     for m in ms.messages() {
-        //         println!(
-        //             "{}:{}@{}: {:?}",
-        //             ms.topic(),
-        //             ms.partition(),
-        //             m.offset,
-        //             m.value
-        //         );
-        //     }
-        //     let _ = con.consume_messageset(&ms);
-        // }
+        // print!("{:?}",mss.iter());
+        for ms in mss.iter() {
+            for m in ms.messages() {
+                println!(
+                    "{}:{}@{}: {:?}",
+                    ms.topic(),
+                    ms.partition(),
+                    m.offset,
+                    m.value
+                );
+            }
+            let _ = con.consume_messageset(&ms);
+        }
         con.commit_consumed()?;
     }
 }
