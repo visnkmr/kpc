@@ -31,7 +31,7 @@ fn consume_messages(group: String, topic: String, brokers: Vec<String>) -> Resul
             println!("No messages available right now.");
             return Ok(());
         }
-        print!("{}",mss);
+        print!("{:?}",mss);
         // for ms in mss.into_iter() {
         //     for m in ms.messages() {
         //         println!(
