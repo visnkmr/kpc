@@ -1,0 +1,7 @@
+[package]
+name = "kcons"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+kafka="0.10.0"
