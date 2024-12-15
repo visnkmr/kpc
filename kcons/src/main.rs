@@ -1,6 +1,6 @@
 use kafka::consumer::{Consumer, FetchOffset, GroupOffsetStorage};
 use kafka::error::Error as KafkaError;
-
+use std::str;
 /// This program demonstrates consuming messages through a `Consumer`.
 /// This is a convenient client that will fit most use cases.  Note
 /// that messages must be marked and committed as consumed to ensure
@@ -8,7 +8,7 @@ use kafka::error::Error as KafkaError;
 fn main() {
     // tracing_subscriber::fmt::init();
 
-    let broker = "localhost:9092".to_owned();
+    let broker = "13.51.172.243:9092".to_owned();
     let topic = "my-topic".to_owned();
     let group = "my-group".to_owned();
 
@@ -39,7 +39,7 @@ fn consume_messages(group: String, topic: String, brokers: Vec<String>) -> Resul
                     ms.topic(),
                     ms.partition(),
                     m.offset,
-                    m.value
+                    str::from_utf8(m.value).unwrap()
                 );
             }
             let _ = con.consume_messageset(ms);

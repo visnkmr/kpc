@@ -9,7 +9,7 @@ use kafka::producer::{Producer, Record, RequiredAcks};
 fn main() {
     // tracing_subscriber::fmt::init();
 
-    let broker = "localhost:9092";
+    let broker = "13.51.172.243:9092";
     let topic = "my-topic";
 
     let data = "hello, kafka".as_bytes();
