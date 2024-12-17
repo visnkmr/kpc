@@ -4,4 +4,6 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
-kafka="0.10.0"
+# kafka="0.10.0"
+tokio = { version = "1.42.0", features = ["full"] }
+rdkafka="0.37"
